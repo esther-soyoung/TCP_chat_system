@@ -29,4 +29,18 @@ Otherwise if there already exists a connection socket for this socket in the loo
 Disconnect the connection if the client types in invalid message such as keyboard interruption or blank. Remove the connection socket from conn_list and close it.  
 
 ![srv5](https://github.com/esther-soyoung/TCP_chat_system/img/code5.png)  
-Catch KeyboardInterrupt so that the program terminates with Ctrl+C. Close all the existing connection sockets and welcome_socket in this case.
+Catch KeyboardInterrupt so that the program terminates with Ctrl+C. Close all the existing connection sockets and welcome_socket in this case.  
+
+## Client
+![cli1](https://github.com/esther-soyoung/TCP_chat_system/img/cli1.png)  
+Create a socket cli_sock that takes a server address as command line argument. Then connect to the server.  
+
+![cli2](https://github.com/esther-soyoung/TCP_chat_system/img/cli2.png)  
+Run the loop until the connection disconnects, meaning it keeps detecting transmission between server and itself.  
+If the current socket being processed by the server is this very socket(cli_sock), implying the server is sending some message to it, then receive data from the server. The received data will be messages with status information. If there is no data being received, which indicates the server closed the connection, then close the client socket and exit the program.  
+
+![cli3](https://github.com/esther-soyoung/TCP_chat_system/img/cli3.png)  
+Otherwise get message as a raw input from user and send it to the server so that the server can propagate this message to other users. If the user enter empty string, then disconnect.  
+
+![cli4](https://github.com/esther-soyoung/TCP_chat_system/img/cli4.png)  
+Catch KeyboardInterrupt so that the program terminates with Ctrl+C. Close the socket and exit program.
