@@ -10,8 +10,8 @@ This is a multi-user real time chatting application based on python language and
 
 # Snapshots
 ![Demo image1](img/Picture1.png)  
-![Demo image2](Picture2.png)  
-![Demo image3](Picture3.png)  
+![Demo image2](img/Picture2.png)  
+![Demo image3](img/Picture3.png)  
 
 # Line by line
 ## Server
@@ -43,5 +43,5 @@ If the current socket being processed by the server is this very socket(cli_sock
 ![cli3](img/cli3.png)  
 Otherwise get message as a raw input from user and send it to the server so that the server can propagate this message to other users. If the user enter empty string, then disconnect.  
 
-![cli4](img/cli4.png)  
+![cli4](img/cli4png.png)  
 Catch KeyboardInterrupt so that the program terminates with Ctrl+C. Close the socket and exit program.
