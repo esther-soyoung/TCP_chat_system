@@ -1,5 +1,8 @@
 import socket, sys, select
 
+if len(sys.argv) != 3:
+    sys.exit("Usage: %s hostIP portNum" %sys.argv[0])
+
 cli_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 srv_host = sys.argv[1]
 srv_port = int(sys.argv[2])

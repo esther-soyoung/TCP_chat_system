@@ -1,5 +1,8 @@
 import socket, sys, select
 
+if len(sys.argv) != 3:
+    sys.exit("Usage: %s hostIP portNum" %(sys.argv[0]))
+
 welcome_sock = socket.socket()
 host = sys.argv[1]
 port = int(sys.argv[2])
@@ -9,7 +12,7 @@ welcome_sock.bind((host, port))
 print('Chat Server started on port %s.' %port)
 
 num_cli = 0
-welcome_sock.listen()
+welcome_sock.listen(5)
 conn_list = [welcome_sock]
 
 # when there exist connection requests
