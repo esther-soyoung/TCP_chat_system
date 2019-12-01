@@ -9,6 +9,7 @@ srv_port = int(sys.argv[2])
 
 # connect to the server
 cli_sock.connect((srv_host, srv_port))
+print('connection succeeded')
 
 while True:
   try:
@@ -35,6 +36,7 @@ while True:
         else:
           cli_sock.send(cli_chat.encode())
         print('[You] ' + cli_chat)
+
 
   except KeyboardInterrupt:
     print('KeyboardInterrupt')

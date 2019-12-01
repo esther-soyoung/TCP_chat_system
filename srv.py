@@ -1,11 +1,11 @@
 import socket, sys, select
 
-if len(sys.argv) != 3:
-    sys.exit("Usage: %s hostIP portNum" %(sys.argv[0]))
+if len(sys.argv) != 2:
+    sys.exit("Usage: %s portNum" %(sys.argv[0]))
 
 welcome_sock = socket.socket()
-host = sys.argv[1]
-port = int(sys.argv[2])
+host = ''
+port = int(sys.argv[1])
 
 welcome_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 welcome_sock.bind((host, port))
