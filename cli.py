@@ -94,9 +94,10 @@ while True:
         elif cli_chat =='wise-saying':
           i = randint(0, 50)
           print(wise_saying[i])
+          cli_sock.send(wise_saying[i].encode())
         else:
           cli_sock.send(cli_chat.encode())
-        print('[You] ' + cli_chat)
+        #print('[You] ' + cli_chat)
 
 
   except KeyboardInterrupt:
