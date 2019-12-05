@@ -93,7 +93,7 @@ while True:
           sys.exit()
         elif cli_chat =='wise-saying':
           i = randint(0, 50)
-          print(wise_saying[i]
+          print(wise_saying[i])
         else:
           cli_sock.send(cli_chat.encode())
         print('[You] ' + cli_chat)
