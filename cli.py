@@ -58,6 +58,23 @@ wise_saying = [
 '자신을 내보여라. 그러면 재능이 드러날 것이다. – 발타사르 그라시안'
 ]
 
+#make cuss list
+f = open("./cuss_words.txt", 'r')
+data = f.readlines()
+words = data[0]
+cuss = []
+c= ""
+for w in words:
+  if w == ",":
+    c = c.strip()
+    c = c.upper()
+    cuss.append(c)
+    c = ""
+  else:
+    c = c+w
+f.close()
+
+
 if len(sys.argv) != 3:
     sys.exit("Usage: %s hostIP portNum" %sys.argv[0])
 
@@ -91,10 +108,15 @@ while True:
           cli_sock.close()
           print('You have been disconnected.')
           sys.exit()
+        # wise saying
         elif cli_chat =='wise-saying':
           i = randint(0, 50)
           print(wise_saying[i])
           cli_sock.send(wise_saying[i].encode())
+        # cuss
+        elif cli_chat.upper() in cuss:
+          temp = '****'
+          cli_sock.send(temp.encode())
         else:
           cli_sock.send(cli_chat.encode())
         #print('[You] ' + cli_chat)
